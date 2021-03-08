@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Header from './components/Header/Header';
+import Shop from './components/Shop/Shop';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Review from './components/Review/Review';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path='/shop'>
+          <Shop />
+        </Route>
+        <Route path='/review'>
+          <Review />
+        </Route>
+        <Route exact path='/'>
+          <Shop />
+        </Route>
+        <Route path="/product/:Key">
+          <ProductDetails/>
+        </Route>
+        <Route path='*'>
+          <h3>This page is 404!</h3>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
