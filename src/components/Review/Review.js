@@ -32,7 +32,7 @@ const Review = () => {
             <div className="row">
                 <div className="col-md-8">
                     {
-                        cart.map(pd => <ReviewItems removeProduct={removeProduct} product={pd} />)
+                        cart.map(pd => <ReviewItems key={pd.key} removeProduct={removeProduct} product={pd} />)
                     }
                 </div>
                 <div className="col-md-4">
