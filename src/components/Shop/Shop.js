@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useState } from 'react';
 import Cart from '../Cart/Cart';
 import Products from '../Products/Products';
@@ -8,7 +7,7 @@ import { addToDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
     const first10 = fakeData.slice(0,10)
-    const [products, setProducts] = useState(first10);
+    const [products] = useState(first10);
     const [cart, setCart] = useState([]);
 
     const addToCart = product => {
